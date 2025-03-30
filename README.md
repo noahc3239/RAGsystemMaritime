@@ -1,5 +1,6 @@
 # Maritime Regulations RAG System 
 
+![Alt text](images/RAG_design.png)
 
 ## Overview
 
