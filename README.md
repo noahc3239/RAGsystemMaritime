@@ -1,13 +1,9 @@
-# Your RAG System Project Name
+# Maritime Regulations RAG System 
 
-[![Project Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/your-username/your-repo-name)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)
-![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
 
 ## Overview
 
-This repository contains the code and resources for a Retrieval-Augmented Generation (RAG) system. RAG is a framework that combines the strengths of pre-trained language models with external knowledge sources to generate more informative, accurate, and contextually relevant responses.
+This repository contains the code and resources for a RAG system that vectors PDF files regarding maritime regulations. A RAG system can enchance a LLM by allowing it to storage external knowlegde sources, improving it's accuracy to your questions.
 
 **Key Features:**
 
@@ -25,29 +21,40 @@ These instructions will guide you on how to set up and run the RAG system on you
 
 * **Python 3.7+**
 * **pip** (Python package installer)
-* **[Optional: List any specific software or services required, e.g., API keys for language models, database installations, etc.]**
+* Gemini API Key
+* Anaconda prompt
+* Must import the following:
+* import os
+* import fitz  # PyMuPDF
+* from langchain_huggingface import HuggingFaceEmbeddings
+* import chromadb
+* import traceback
+* from tqdm import tqdm  # For progress bars
+* import gc  # Garbage collectio
 
 ### Installation
 
-1.  Clone the repository:
+
+
+1.  Create a virtual environment (recommended):
 
     ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-    cd your-repo-name
+    conda create --name <environment_name> python=3.9  # On Anaconda Prompt 
     ```
 
-2.  Create a virtual environment (recommended):
+3.  Install the required dependencies # On Anaconda Prompt :
 
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On macOS/Linux
-    venv\Scripts\activate  # On Windows
+    conda install -c conda-forge pymupdf #Fitz
     ```
-
-3.  Install the required dependencies:
-
     ```bash
-    pip install -r requirements.txt
+    pip install langchain-huggingface #HuggingFace Embeddings
+    ```
+    ```bash
+    pip install chromadb #Chromadb
+    ```
+    ```bash
+    pip install tqdm #tqdm
     ```
 
     **(Note:** Make sure you have a `requirements.txt` file listing all the necessary Python packages. You can generate one using `pip freeze > requirements.txt` after installing the dependencies.)
@@ -56,7 +63,7 @@ These instructions will guide you on how to set up and run the RAG system on you
 
 * **API Keys:** If your project uses external APIs (e.g., OpenAI), you might need to set up API keys as environment variables or in a configuration file. Refer to the specific documentation for those integrations.
 * **Data Sources:** Configure the paths to your knowledge base documents or the connection details for your data sources.
-* **Vector Database:** If you're using a vector database, you might need to start the database server or configure its connection parameters.
+
 
     **(Example: Mention environment variables)**
 
@@ -64,14 +71,5 @@ These instructions will guide you on how to set up and run the RAG system on you
     export OPENAI_API_KEY="your_openai_api_key_here"
     ```
 
-### Usage
+    ![Alt text]("C:\Users\brend\OneDrive\Documents\Desktop\RAG design.png")
 
-Provide clear and concise instructions on how to run your RAG system. Include examples if possible.
-
-```python
-# Example Python usage (if applicable)
-from your_module import RAGSystem
-
-rag_system = RAGSystem(config_path="config.yaml") # Example configuration
-response = rag_system.generate_response("What is the capital of France?")
-print(response)
